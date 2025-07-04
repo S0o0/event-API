@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications</title>
+    <!-- <link rel="stylesheet" href="./css/style_index.css"> -->
+    <link rel="stylesheet" href="./css/style_appli.css">
+    <link rel="stylesheet" href="./css/style_backbutton.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* style_toggle.css */
+    </style>
+</head>
+
+<body>
+
+    <a class="back-button" href="index_hub.html" id="backbutton">
+        Retour
+    </a>
+    <div class="container">
+        <!-- Ligne du haut -->
+        <div class="item">
+            <a href="#" id="accueil-link" class="icon" target="_blank" data-module="accueil">
+                <img src="./img/video-home.png" alt="Accueil">
+                <!-- <h3>ACCUEIL</h3> -->
+            </a>
+            <!-- Input pour changer dynamiquement le lien -->
+            <input type="text" id="input-url-accueil" class="input-url" data-module="accueil"
+                placeholder="Entrez votre URL" oninput="updateAccueilLink(this)" />
+            <button id="save-btn-accueil" class="save-btn" data-module="accueil">Enregistrer</button>
+            <input type="checkbox" class="toggle-switch" data-module="accueil" onchange="toggleModule(this)">
+            <span class="status-label" id="status-accueil"></span>
+        </div>
+        <div class="item">
+            <a href="https://vocalvideo.com/" id="option" class="icon" target="_blank" data-module="livreor">
+                <img src="./img/livreor.png" alt="Livre d'or">
+                <!-- <h3>LIVRE D'OR VIDÉO</h3> -->
+            </a>
+            <input type="checkbox" class="toggle-switch" data-module="livreor" onchange="toggleModule(this)">
+            <span class="status-label" id="status-livreor"></span>
+        </div>
+
+        <div class="item">
+            <a href="#" id="option" class="icon" target="_blank" data-module="livreoraudio">
+                <img src="./img/livreoraudio.png" alt="Livre d'or audio">
+                <!-- <h3>LIVRE D'OR AUDIO</h3> -->
+            </a>
+            <input type="checkbox" class="toggle-switch" data-module="livreoraudio" onchange="toggleModule(this)">
+            <span class="status-label" id="status-livreoraudio"></span>
+        </div>
+
+        <div class="item">
+            <a href="#" id="option" class="icon" target="_blank" data-module="programme">
+                <img src="./img/timetable.png" alt="Programme">
+                <!-- <h3>PROGRAMME DU MARIAGE</h3> -->
+            </a>
+            <input type="checkbox" class="toggle-switch" data-module="programme" onchange="toggleModule(this)">
+            <span class="status-label" id="status-programme"></span>
+        </div>
+
+
+        <div class="item">
+            <a href="https://www.simplebooth.com/" id="option" class="icon" target=" _blank" data-module="photo">
+                <img src="./img/photobooth-ia.jpg" alt="Photobooth">
+                <!-- <h3>PHOTOBOOTH</h3> -->
+            </a>
+            <input type="checkbox" class="toggle-switch" data-module="photo" onchange="toggleModule(this)">
+            <span class="status-label" id="status-photo"></span>
+        </div>
+
+        <!-- Ligne du milieu -->
+        <div class="item">
+            <a href="#" id="option" class="icon" target="_blank" data-module="plan">
+                <img src="./img/dinner-table.png" alt="Plan">
+                <!-- <h3>PLAN DE TABLE</h3> -->
+            </a>
+            <input type="checkbox" class="toggle-switch" data-module="plan" onchange="toggleModule(this)">
+            <span class="status-label" id="status-plan"></span>
+        </div>
+
+        <div class="item">
+            <a href="https://www.loom.com/" id="option" class="icon" target="_blank" data-module="video">
+                <img src="./img/videobooth-ia.jpg" alt="Videobooth">
+                <!-- <h3>VIDEOBOOTH</h3> -->
+            </a>
+            <input type="checkbox" class="toggle-switch" data-module="video" onchange="toggleModule(this)">
+            <span class="status-label" id="status-video"></span>
+        </div>
+
+        <div class="item">
+            <a href="https://www.karafun.fr/" id="option" class="icon" target="_blank" data-module="karaoke">
+                <img src="./img/karaoke-ia(1).png" alt="Karaoke">
+                <!-- <h3>KARAOKE</h3> -->
+            </a>
+            <input type="checkbox" class="toggle-switch" data-module="karaoke" onchange="toggleModule(this)">
+            <span class="status-label" id="status-karaoke"></span>
+        </div>
+        <!-- Ligne du bas -->
+        <div class="item">
+            <a href="https://www.zoom.com/fr" id="option" class="icon" target="_blank" data-module="facetime">
+                <img src="./img/facetime.png" alt="facetime">
+                <!-- <h3>APPEL VIDÉO</h3> -->
+            </a>
+            <input type="checkbox" class="toggle-switch" data-module="facetime" onchange="toggleModule(this)">
+            <span class="status-label" id="status-facetime"></span>
+        </div>
+
+        <div class="item">
+            <a href="https://www.slido.com/fr" id="option" class="icon" target="_blank" data-module="feedback">
+                <img src="./img/feedback.png" alt="Feedback">
+                <!-- <h3>FEEDBACK</h3> -->
+            </a>
+            <input type="checkbox" class="toggle-switch" data-module="feedback" onchange="toggleModule(this)">
+            <span class="status-label" id="status-feedback"></span>
+        </div>
+
+        <div class="item">
+            <a href="#" id="option" class="icon" target="_blank" data-module="quiz">
+                <img src="./img/quiz.png" alt="Quiz">
+                <!-- <h3>QUIZ SUR LES MARIÉS</h3> -->
+            </a>
+            <input type="checkbox" class="toggle-switch" data-module="quiz" onchange="toggleModule(this)">
+            <span class="status-label" id="status-quiz"></span>
+        </div>
+
+        <div class="item">
+            <a href="https://solis.pro/?page_id=524" id="option" class="icon" target="_blank" data-module="tombola">
+                <img src="./img/tombola.png" alt="Spin">
+                <!-- <h3>JEU INTERACTIF</h3> -->
+            </a>
+            <input type="checkbox" class="toggle-switch" data-module="tombola" onchange="toggleModule(this)">
+            <span class="status-label" id="status-tombola"></span>
+        </div>
+    </div>
+
+    <script src="./js/scriptDisabled.js"></script>
+    <script src="./js/scriptURLFront.js"></script>
+    <script src="./js/scriptURLBack.js"></script>
+</body>
+
+</html>

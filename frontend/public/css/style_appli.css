@@ -1,0 +1,339 @@
+body {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1f1b2e, #2a2f45);
+    padding: 20px;
+    /* pour ne pas coller aux bords */
+    background-size: 200% 100%;
+    animation: moveBg 10s linear infinite;
+}
+
+/* Animation du dégradé */
+@keyframes moveBg {
+    0% {
+        background-position: 0% 100%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+
+/* Particules scintillantes en fond */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+    background-image:
+        radial-gradient(3px 3px at 10% 90%, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(2px 2px at 25% 95%, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(4px 4px at 40% 85%, rgba(255, 255, 255, 0.5), transparent),
+        radial-gradient(2px 2px at 60% 100%, rgba(255, 255, 255, 0.6), transparent),
+        radial-gradient(3px 3px at 75% 92%, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(2px 2px at 90% 98%, rgba(255, 255, 255, 0.6), transparent);
+    background-repeat: repeat;
+    background-size: 300px 300px;
+    animation: sparkle 15s linear infinite;
+}
+
+@keyframes sparkle {
+    0% {
+        transform: translateY(100px);
+    }
+
+    100% {
+        transform: translateY(-200px);
+    }
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 colonnes */
+    grid-auto-rows: auto;
+    gap: 25px 30px;
+    /* espace vertical et horizontal */
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    /* max largeur pour éviter étirement */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Contenu de chaque cellule */
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Style des icônes */
+.icon {
+    background: none;
+    border-radius: 20px;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    /* largeur réduite */
+    height: 220px;
+    /* hauteur réduite */
+    box-sizing: border-box;
+}
+
+.icon:hover {
+    transform: scale(1.05);
+}
+
+.icon img {
+    width: 200px;
+    height: 300px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 3px 3px rgba(0, 41, 37, 0.3));
+    border-radius: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-5px) rotate(1deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+.icon h3 {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #eeeef1;
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    opacity: 0.85;
+}
+
+#option,
+#accueil-link {
+    text-decoration: none;
+    display: flex;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+}
+
+.tick {
+    position: absolute;
+    top: 10px;
+    width: 24px;
+    height: 24px;
+    background-image: url('../img/tick.png');
+    /* une image tick verte transparente */
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: none;
+    /* caché par défaut */
+}
+
+.item {
+    position: relative;
+    /* important pour positionner le tick par rapport à l’item */
+}
+
+.tick-left {
+    left: 10px;
+}
+
+.tick-right {
+    right: 10px;
+}
+
+a.clicked {
+    pointer-events: none;
+    /* Désactive les clics */
+    opacity: 0.6;
+    /* Atténue visuellement */
+    cursor: default;
+    /* Change le curseur */
+    filter: grayscale(70%);
+    /* Optionnel : effet désactivé */
+    transform: scale(0.98);
+    /* Optionnel : léger effet de clic */
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .3s;
+    border-radius: 25px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 19px;
+    width: 19px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #4CAF50;
+}
+
+input:checked+.slider:before {
+    transform: translateX(24px);
+}
+
+.status-label {
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+input.disabled,
+button.disabled,
+a.disabled {
+    pointer-events: none;
+    opacity: 0.4;
+    filter: grayscale(100%);
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #ccc;
+    outline: none;
+    border-radius: 30px;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+.toggle-switch:checked {
+    background: #4CAF50;
+}
+
+.toggle-switch::before {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    background: white;
+    transition: transform 0.3s;
+}
+
+.toggle-switch:checked::before {
+    transform: translateX(24px);
+}
+
+.input-url {
+    padding: 10px 15px;
+    width: 220px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-family: 'Rubik', sans-serif;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+}
+
+.input-url:focus {
+    border-color: #081141;
+    box-shadow: 0 0 6px rgba(8, 17, 65, 0.3);
+}
+
+.save-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-family: 'Rubik', sans-serif;
+}
+
+.save-btn:hover {
+    background-color: #3ac85c;
+    transform: translateY(-2px);
+}
+
+.save-btn:active {
+    transform: scale(0.98);
+    background-color: #208838;
+}

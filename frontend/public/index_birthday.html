@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anniversaire</title>
+    <link rel="stylesheet" href="./css/style_birthday.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Bouton admin -->
+    <div id="admin-access">
+        <button id="btn-admin">
+            <img src="./img/lock-icon.png" alt="Admin" />
+        </button>
+    </div>
+
+    <div class="container">
+        <div class="item">
+            <a class="popup-link" href="#" data-module="accueil" id="accueil-link">
+                <div class="icon">
+                    <img src="./img/video-home.png" alt="Accueil">
+                    <!-- <h3>ACCUEIL</h3> -->
+                </div>
+            </a>
+        </div>
+
+        <div class="item">
+            <a href="https://www.zoom.com/" class="popup-link" data-module="facetime" id="video-chat">
+                <div class="icon">
+                    <img src="./img/facetime.png" alt="video-chat">
+                    <!-- <h3>APPEL VIDÉO</h3> -->
+                </div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="https://www.karafun.fr/" class="popup-link" data-module="karaoke" id="karaoke">
+                <div class="icon">
+                    <img src="./img/karaoke-ia(1).png" alt="karaoke">
+                    <!-- <h3>KARAOKE</h3> -->
+                </div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="https://www.simplebooth.com/" class="popup-link" data-module="photo" id="photobooth">
+                <div class="icon">
+                    <img src="./img/photobooth-ia.jpg" alt="photo">
+                    <!-- <h3>PHOTOBOOTH</h3> -->
+                </div>
+            </a>
+        </div>
+        <div class="item">
+            <a href="https://www.loom.com/" class="popup-link" data-module="video" id="videobooth">
+                <div class="icon">
+                    <img src="./img/videobooth-ia.jpg" alt="video">
+                    <!-- <h3>VIDEOBOOTH</h3> -->
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <script src="./js/scriptGrey.js"></script>
+    <script src="./js/scriptBackButton.js"></script>
+    <script src="./js/scriptPopup.js"></script>
+    <script src="./js/scriptURLBack.js"></script>
+</body>
+
+</html>
