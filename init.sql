@@ -1,0 +1,9 @@
+CREATE TABLE utilisateurs (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  username TEXT UNIQUE NOT NULL,
+  password TEXT NOT NULL,
+  wedding BOOLEAN DEFAULT 0,
+  birthday BOOLEAN DEFAULT 0,
+  bapteme BOOLEAN DEFAULT 0,
+  company BOOLEAN DEFAULT 0
+);
